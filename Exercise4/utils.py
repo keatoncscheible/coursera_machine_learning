@@ -213,13 +213,13 @@ class Grader(SubmissionBase):
                     J, grad = func(self.t, 2, 4, 4, self.Xm, self.ym, 0)
                     grad1 = np.reshape(grad[:12], (4, 3))
                     grad2 = np.reshape(grad[12:], (4, 5))
-                    grad = np.concatenate([grad1.ravel('F'), grad2.ravel('F')])
+                    grad = np.concatenate([grad1.ravel('F'), grad2.ravel('F')])[None]
                     res = np.hstack([J, grad]).tolist()
                 elif part_id == 5:
                     J, grad = func(self.t, 2, 4, 4, self.Xm, self.ym, 1.5)
                     grad1 = np.reshape(grad[:12], (4, 3))
                     grad2 = np.reshape(grad[12:], (4, 5))
-                    grad = np.concatenate([grad1.ravel('F'), grad2.ravel('F')])
+                    grad = np.concatenate([grad1.ravel('F'), grad2.ravel('F')])[None]
                     res = np.hstack([J, grad]).tolist()
                 else:
                     raise KeyError
